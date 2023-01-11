@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:health_app/domains/blood_pressure/pages/blood_pressure_page.dart';
+import 'package:health_app/domains/bmi/pages/bmi_page.dart';
 import 'package:health_app/domains/counter/pages/counter_page.dart';
 import 'package:go_router/go_router.dart';
 
@@ -25,6 +26,10 @@ class MyApp extends StatelessWidget {
           GoRoute(
             path: '/blood-pressure',
             builder: (context, state) => const BloodPressurePage(title: 'Blood Pressure')
+          ),
+          GoRoute(
+            path: '/bmi',
+            builder: (context, state) => const BmiPage(title: 'BMI')
           )
         ]
     );
