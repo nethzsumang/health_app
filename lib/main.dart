@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:health_app/domains/blood_pressure/pages/blood_pressure_page.dart';
 import 'package:health_app/domains/counter/pages/counter_page.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:go_router/go_router.dart';
 
 
 Future main() async {
@@ -20,12 +22,24 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
+    final router = GoRouter(
+        routes: [
+          GoRoute(
+            path: '/',
+            builder: (context, state) => const CounterPage(title: 'Home')
+          ),
+          GoRoute(
+            path: '/blood-pressure',
+            builder: (context, state) => const BloodPressurePage(title: 'Blood Pressure')
+          )
+        ]
+    );
+    return MaterialApp.router(
+      title: 'Health App',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.blue
       ),
-      home: const CounterPage(title: 'Flutter Demo Home Page'),
+      routerConfig: router,
     );
   }
 }
