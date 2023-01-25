@@ -4,10 +4,12 @@ import 'package:health_app/domains/blood_pressure/pages/blood_pressure_page.dart
 import 'package:health_app/domains/bmi/pages/bmi_page.dart';
 import 'package:health_app/domains/counter/pages/counter_page.dart';
 import 'package:go_router/go_router.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
   await dotenv.load(fileName: '.env');
   runApp(const MyApp());
 }
