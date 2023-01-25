@@ -32,7 +32,6 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^8.0.0
-  supabase_flutter: ^1.2.2
   flutter_dotenv:
   go_router:
 
